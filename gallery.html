@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="images/favicon.png" />
+
+
+    
+    <title>PARVA
+    </title>
+  </head>
+  <body>
+    <!-- Message Icon -->
+    <div
+      class="message-icon"
+      data-bs-toggle="modal"
+      data-bs-target="#messageModal"
+    >
+      <img src="./images/a/mail.png" width="50" alt="" />
+      <!-- Message envelope icon -->
+    </div>
+
+    <!-- Modal Popup Form -->
+    <div
+      class="modal fade"
+      id="messageModal"
+      tabindex="-1"
+      aria-labelledby="messageModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="messageModalLabel">Send a Message</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="messageForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" required />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="sendMessage()"
+                >
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function sendMessage() {
+        // Get form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Simple form validation
+        if (name && email && message) {
+          alert("Email sent successfully!");
+
+          // Here you would add your code to send an email
+          // E.g., using EmailJS, a backend API, etc.
+
+          // Close the modal after sending
+          const modalElement = document.getElementById("messageModal");
+          const modalInstance = bootstrap.Modal.getInstance(modalElement);
+          modalInstance.hide();
+
+          // Clear form
+          document.getElementById("messageForm").reset();
+        } else {
+          alert("All fields are required!");
+        }
+      }
+    </script>
+
+    <!-- Navigation -->
+    <nav class="navbar bg-opacity-25 .navbar.scrolled navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <div class="container">
+        <a href="index.html" class="navbar-brand i">
+          <img src="images/a/logo.png" alt="" width="25" />
+          <span style="font-size: 25px;">PARVA</span>
+        </a>
+        
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link fw-semibold">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/gallery.html" class="nav-link fw-semibold">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="contact.html"
+                class="nav-link btn btn-outline-light fw-semibold px-4 mx-4"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    
+
+  <!--Image slider-->
+    
+    <h1 class=" photo bg-dark pt-5 mb-0  text-dark"></h1>
+    <h1 class=" photo bg-dark pt-5 mb-0 pb-5   ps-2 text-white">Photo Gallery</h1>
+
+  <div id="carouselExampleInterval" class="carousel slide bg-dark " data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="2000">
+      <img src="./images/a/h1.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="./images/a/h2.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./images/a/h3.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<style>
+    .profile-container {
+      background-color: black;
+      color: white;
+      padding: 20px;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .profile-card {
+      text-align: center;
+      padding: 20px;
+    }
+    .profile-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+  </style>
+</head>
+<body>
+
+
+    <div class="  bg-dark text-white p-5">
+        <h2>Highlighted Projects</h2>
+
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="col-md-4 profile-card">
+              <img src="./images/a/h3.png" alt="Profile Image" class="profile-img">
+              <h5>Green envelope</h5>
+              <p>sculptural contemporary piece of art stands in middle of lush green areca farm in Ujire near Dharmastala. central courtyard, double height  living room and a  private garden adds to the  spatial luxury of 6000 sq ft residence.</p>
+            </div>
+            <!-- Column 2 -->
+            <div class="col-md-4 profile-card">
+              <img src="images/a/h2.png" alt="Profile Image" class="profile-img">
+              <h5>Kanagodu residence</h5>
+              <p>anugodu residence is situated in place named kanagodu near sagara, shivamogga , client had a simple brief and very tight budget of 20lakhs.
+
+
+
+house is hybrid of both concrete and native roof tiles, laterite block walls helped holding load bearing structure in right manner, concrete door frames for bedrooms, aluminum windows ,kadappa stone </p>
+            </div>
+            <!-- Column 3 -->
+            <div class="col-md-4 profile-card">
+              <img src="./images/a/h1.png" alt="Profile Image" class="profile-img">
+              <h5>Floating wall</h5>
+              <p>The floating wall residence stands in plot area of 2800 sq ft at Davangere, and ground cover of 1800 sq ft allowing huge private garden, entire living room of thirty five feet length opens up to garden with a sliding and folding  window, hundred percentage of living room allows itself to become a garden when windows are kept open.</p>
+            </div>
+          </div>
+      
+    </div>
+    <div class="  bg-dark text-white p-5">
+    
+        <h2>Connect With Us</h2>
+        <p>Follow us on Instagram to stay updated with our latest projects and news.</p>
+        <div class="mw-100 h-100">
+          <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-icon">
+            <img src="./images/instagram.png" alt="" width="100" />
+          </a>
+          <a href="index.html" class="navbar-brand">
+          </a>
+      </div>
+      <!--Message icon-->
+      <style>
+        /* Style the message icon */
+        .message-icon {
+          font-size: 24px;
+          cursor: pointer;
+          color: white;
+          background-color: black;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: fixed; /* Fixed position for static placement */
+          bottom: 20px; /* Adjust from the bottom */
+          right: 20px; /* Adjust from the right */
+          z-index: 1000; /* Ensure it appears above other elements */
+        }
+      </style>
+    </head>
+    <body>
+      <!-- Message Icon -->
+  
+  
+      <!-- Bootstrap JavaScript and Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+      <script>
+        function sendMessage() {
+          // Get form values
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+  
+          // Simple form validation
+          if (name && email && message) {
+            alert("Email sent successfully!");
+  
+            // Here you would add your code to send an email
+            // E.g., using EmailJS, a backend API, etc.
+  
+            // Close the modal after sending
+            const modalElement = document.getElementById("messageModal");
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            modalInstance.hide();
+  
+            // Clear form
+            document.getElementById("messageForm").reset();
+          } else {
+            alert("All fields are required!");
+          }
+        }
+      </script>
+      <div id="includeHtml"></div>
+
+  
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
